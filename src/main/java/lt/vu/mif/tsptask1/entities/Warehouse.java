@@ -22,6 +22,6 @@ public class Warehouse implements Serializable {
     @JoinColumn(name = "manager_id")
     private Manager manager;
 
-    @ManyToMany(mappedBy = "employees")
+    @ManyToMany(mappedBy = "workPlaces")
     private Collection<Employee> employees = new ArrayList<>();
 }
