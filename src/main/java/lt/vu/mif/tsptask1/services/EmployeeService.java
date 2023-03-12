@@ -6,6 +6,7 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
+import java.util.Collection;
 
 @ApplicationScoped
 @Transactional
@@ -23,5 +24,11 @@ public class EmployeeService {
 
     public Employee findEmployee(Long id) {
         return entityManager.find(Employee.class, id);
+    }
+
+    public Collection<Employee> findAllEmployees() {
+        return entityManager
+                .createNamedQuery("Employee.findAll", Employee.class)
+                .getResultList();
     }
 }

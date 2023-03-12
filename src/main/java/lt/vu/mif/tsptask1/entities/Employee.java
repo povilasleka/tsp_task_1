@@ -8,7 +8,11 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 @Entity
+@Table(name = "Employee")
 @Getter @Setter
+@NamedQueries({
+    @NamedQuery(name = "Employee.findAll", query = "select e from Employee as e")
+})
 public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

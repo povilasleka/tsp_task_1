@@ -5,7 +5,14 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
-<f:view>
-    <h:outputLabel value="Hello, world"/>
-</f:view>
+<h:body>
+    <h2>Employees:</h2>
+    <ol>
+        <ui:repeat value="#{employeesBean.allEmployees}" var="player">
+            <li>
+                <h:link value="#{player.firstName} #{player.lastName}" outcome="playerDetails?playerId=#{player.id}" />
+            </li>
+        </ui:repeat>
+    </ol>
+</h:body>
 </html>
